@@ -1,0 +1,38 @@
+{
+  "name": "icosphere",
+  "version": "0.0.0",
+  "description": "Generates icosphere meshes of varying levels of complexity",
+  "main": "index.js",
+  "dependencies": {
+    "vectors": "^0.1.0"
+  },
+  "devDependencies": {
+    "beefy": "^1.1.0",
+    "browserify": "^4.1.5",
+    "mesh-viewer": "^0.0.1"
+  },
+  "scripts": {
+    "start": "beefy demo.js:bundle.js --open",
+    "bundle": "browserify demo.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/icosphere.git"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hughsk/icosphere/issues"
+  },
+  "homepage": "https://github.com/hughsk/icosphere",
+  "keywords": [
+    "icosphere",
+    "icosahedron",
+    "sphere",
+    "generate",
+    "mesh",
+    "webgl",
+    "3d",
+    "model"
+  ]
+}

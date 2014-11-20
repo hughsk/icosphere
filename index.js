@@ -129,7 +129,7 @@ function subdivide(complex) {
     }
   }
 
-  function pointToKey(point){
+  function pointToKey(point) {
     return point[0].toPrecision(6) + ','
          + point[1].toPrecision(6) + ','
          + point[2].toPrecision(6)

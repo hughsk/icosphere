@@ -3,7 +3,8 @@
 Generates icosphere meshes of varying levels of complexity – implementation
 sourced from [this article](http://blog.andreaskahler.com/2009/06/creating-icosphere-mesh-in-code.html).
 
-[view demo](http://hughsk.io/icosphere)
+* [demo with face normals](http://hughsk.io/icosphere)
+* [demo with vertex normals](http://hughsk.io/icosphere?smooth)
 
 [![icosphere](http://imgur.com/7PwoXuz.png)](http://hughsk.io/icosphere)
 

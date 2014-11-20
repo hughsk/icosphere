@@ -86,12 +86,9 @@ function subdivide(complex) {
     var v1 = positions[c1]
     var v2 = positions[c2]
 
-    // TODO: reuse midpoint vertices between iterations.
-    // Otherwise, there'll be duplicate vertices in the final
-    // mesh, resulting in sharp edges.
-    var a = midpoint(v0, v1, c0, c1)
-    var b = midpoint(v1, v2, c1, c2)
-    var c = midpoint(v2, v0, c2, c0)
+    var a = getMidpoint(v0, v1)
+    var b = getMidpoint(v1, v2)
+    var c = getMidpoint(v2, v0)
 
     var ai = newPositions.indexOf(a)
     if (ai === -1) ai = l++, newPositions.push(a)
@@ -118,7 +115,27 @@ function subdivide(complex) {
     , positions: newPositions
   }
 
-  function midpoint(a, b, ai, bi) {
+  // reuse midpoint vertices between iterations.
+  // Otherwise, there'll be duplicate vertices in the final
+  // mesh, resulting in sharp edges.
+  function getMidpoint(a, b) {
+    var point = midpoint(a, b)
+    var pointKey = pointToKey(point)
+    var cachedPoint = midpoints[pointKey]
+    if (cachedPoint) {
+      return cachedPoint
+    } else {
+      return midpoints[pointKey] = point
+    }
+  }
+
+  function pointToKey(point){
+    return point[0].toPrecision(6) + ','
+         + point[1].toPrecision(6) + ','
+         + point[2].toPrecision(6)
+  }
+
+  function midpoint(a, b) {
     return [
         (a[0] + b[0]) / 2
       , (a[1] + b[1]) / 2

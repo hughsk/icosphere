@@ -1,5 +1,12 @@
-var viewer = require('mesh-viewer')({
-  useCellNormals: true
+var Viewer = require('mesh-viewer')
+var qs = require('querystring')
+
+var smooth = 'smooth' in qs.parse(
+  window.location.search.slice(1)
+)
+
+var viewer = Viewer({
+    useCellNormals: !smooth
   , meshColor: [1, 1, 1]
   , specular: [0.3, 0.3, 0.3]
   , ambient: [0, 0, 0]
